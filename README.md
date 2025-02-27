@@ -7,6 +7,9 @@ Use Danio rerio VA opsin as outgroup. Careful, outgroup has to be the first sequ
 Trim alignment according to LWS opsin (if present). At the 5' end, trim LWS exon 1. At the 3' end, trim LWS exon 6 (i. e. exon 5 for other opsins).  
 Export in .nex format.
 
+# Adjusting the NEXUS file for Mr Bayes
+NEXUS file generated from Geneious has to be edited before being submitted to MrBayes.
+
     #NEXUS
     begin data;
     	dimensions ntax=66 nchar=1231;
