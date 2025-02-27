@@ -1,4 +1,4 @@
-# Phylogenetic-analysis
+# Phylogenetic analysis
 Phylogenetic analysis of opsin genes - script that I used for Balkan project
 
 # Opsin sequence alignment preparation in Geneious
