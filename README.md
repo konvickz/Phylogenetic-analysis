@@ -62,3 +62,17 @@ Explanation of MrBayes block:
                 burnin=2500; #Summarizes parameters in a couple of files after discarding 2500 first entries
 
             end;
+
+# Running MrBayes on Metacentrum
+Prepare new folder for each run. This folder must contain .nex file with instructions for MrBayes.    Submit the job using the following script:
+
+        #!/bin/bash
+        #PBS -N NAME.pbs
+        #PBS -l select=1:ncpus=12:mem=100gb:scratch_local=100gb
+        #PBS -l walltime=24:00:00
+
+        cd path/to/your/file
+
+        module load mrbayes/3.2.7a-intel-19.0.4-s2htn4w
+
+        mb NAME.nex
