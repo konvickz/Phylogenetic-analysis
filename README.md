@@ -7,3 +7,9 @@ Use Danio rerio VA opsin as outgroup. Careful, outgroup has to be the first sequ
 Trim alignment according to LWS opsin (if present). At the 5' end, trim LWS exon 1. At the 3' end, trim LWS exon 6 (i. e. exon 5 for other opsins).  
 Export in .nex format.
 
+    #NEXUS
+    begin data;
+    	dimensions ntax=66 nchar=1231;
+    	format datatype=dna missing=N gap=-;
+    	matrix
+    	Danio_rerio_VA_opsin_CDS	ATGGAGTCGTTG...
