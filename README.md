@@ -63,6 +63,8 @@ Explanation of MrBayes block:
 
             end;
 
+NOTE:    For some analyses, it can be benefitial to generate MrBayes block with PartitionFinder. (PartitionFinder is looking for best parameters based on alignment properties.)
+
 # Running MrBayes on Metacentrum
 Prepare new folder for each run. This folder must contain .nex file with instructions for MrBayes.    Submit the job using the following script:
 
