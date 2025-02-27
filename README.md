@@ -19,8 +19,7 @@ Edit the beginning of the file so that it looks like this:
     	matrix
     	Danio_rerio_VA_opsin_CDS	ATGGAGTCGTTG...
 
-Append MrBayes block to the end of the file (paste MrBayes block on a new line after end;)
-
+Append MrBayes block to the end of the file (paste MrBayes block on a new line after end;)    
 MrBayes block:
 
         begin mrbayes;
@@ -28,9 +27,38 @@ MrBayes block:
         	set autoclose=yes nowarn=yes;
         	lset nst=6 rates=invgamma;
 
-        	mcmc ngen=10000000 printfreq=1000 samplefreq=1000 nchains=4 nruns=2 savebrlens=yes filename=Balkan_opsins_analysis1;
+        	mcmc ngen=10000000 printfreq=1000 samplefreq=1000 nchains=4 nruns=2 savebrlens=yes filename=NAME;
 
-         	sumt filename=Balkan_opsins_analysis1 burnin=2500 conformat=simple;
-        	sump filename=Balkan_opsins_analysis1 burnin=2500;
+         	sumt filename=NAME burnin=2500 conformat=simple;
+        	sump filename=NAME burnin=2500;
 
         end;
+
+MrBayes block contains instructions for MrBayes software and sets parameters for the phylogenetic analysis.
+Explanation of MrBayes block:
+
+        begin mrbayes;
+
+            set autoclose=yes nowarn=yes; #Setting general options
+
+            lset nst=6 rates=invgamma #Model specification. Here using the GTR+I+G model
+        
+            mcmc #Run the MCMC analysis
+                ngen=10000000 #Sets number of generations
+                printfreq=1000 #Determines how often MrBayes prints progress updates to the screen (i.e., the terminal or log)
+                samplefreq=1000 #Determines how often MrBayes samples trees and parameter values during the MCMC run and writes them to the output files (e.g., .p and .t files)
+                nchains=4 
+                nruns=2 
+                savebrlens=yes #Saves lenghts of the branches
+                filename=NAME; #Sets name of the output file (file with consensus tree)
+
+            sumt #Summarizes the tree results
+                filename=NAME #Sets name of the output file (run.t file)
+                burnin=2500 #Discards 2500 first trees
+                conformat=simple; #Specifies output as a simplified streamlined consensus tree output (the branch lengths represent the average branch lengths across the sampled trees)
+
+            sump #Summarizes parameter estimates with a burn-in
+                filename=NAME #Sets name of the output file (run.p file)
+                burnin=2500; #Summarizes parameters in a couple of files after discarding 2500 first entries
+
+            end;
